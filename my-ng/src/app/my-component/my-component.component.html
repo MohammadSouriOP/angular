@@ -1,0 +1,53 @@
+<div class="container">
+    <form [formGroup]="mortgageForm" (ngSubmit)="onSubmit()">
+      <div class="form__group">
+        <label for="mortgage-amount">Mortgage Amount</label>
+        <div class="icon__container amount">
+          <input type="number" id="mortgage-amount" formControlName="amount" />
+          <span class="icon icon__euro">&pound;</span>
+        </div>
+        <span class="error" *ngIf="amount.invalid && amount.touched">Enter a valid amount</span>
+      </div>
+  
+      <div class="input__group">
+        <div class="form__group">
+          <label for="mortgage-term">Mortgage Term</label>
+          <div class="icon__container term">
+            <input type="number" id="mortgage-term" formControlName="term" />
+            <span class="icon icon__years">years</span>
+          </div>
+          <span class="error" *ngIf="term.invalid && term.touched">Enter a valid term</span>
+        </div>
+  
+        <div class="form__group">
+          <label for="interest-rate">Interest Rate</label>
+          <div class="icon__container rate">
+            <input type="number" id="interest-rate" formControlName="rate" step="0.01" />
+            <span class="icon icon__percent">%</span>
+          </div>
+          <span class="error" *ngIf="rate.invalid && rate.touched">Enter a valid rate</span>
+        </div>
+      </div>
+  
+      <div class="form__group">
+        <p>Mortgage Type</p>
+        <label class="radio">
+          <input type="radio" formControlName="type" value="repayment" /> Repayment
+        </label>
+        <label class="radio">
+          <input type="radio" formControlName="type" value="interest-only" /> Interest Only
+        </label>
+        <span class="error" *ngIf="type.invalid && type.touched">Select a mortgage type</span>
+      </div>
+  
+      <button type="submit" [disabled]="mortgageForm.invalid">Calculate Repayments</button>
+      <button type="button" (click)="clearForm()">Clear All</button>
+    </form>
+  
+    <div class="results__container" *ngIf="result">
+      <h2>Your Results</h2>
+      <p>Monthly Repayment: <strong>£ {{ result.monthly | number:'1.2-2' }}</strong></p>
+      <p>Total Repayment: <strong>£ {{ result.total | number:'1.2-2' }}</strong></p>
+    </div>
+  </div>
+  

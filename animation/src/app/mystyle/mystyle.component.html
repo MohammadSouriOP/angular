@@ -1,0 +1,8 @@
+<button (click)="toggle()">
+    {{ isExpanded ? 'Collapse' : 'Expand' }}
+  </button>
+  
+  <div class="content-container" [@expandCollapse]="isExpanded ? 'expanded' : 'collapsed'">
+    <p>This is some expandable content. Click the button to toggle.</p>
+  </div>
+  

@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <h2 class="text-center">Angular 18 CRUD App</h2>
+
+  <!-- Form to Add New Post -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h4>Add New Post</h4>
+      <input [(ngModel)]="newPost.title" class="form-control mb-2" placeholder="Title" />
+      <textarea [(ngModel)]="newPost.body" class="form-control mb-2" placeholder="Body"></textarea>
+      <button (click)="addPost()" class="btn btn-primary">Add Post</button>
+    </div>
+  </div>
+
+  <!-- Edit Post Form -->
+  <div *ngIf="editingPost" class="card mb-4">
+    <div class="card-body">
+      <h4>Edit Post</h4>
+      <input [(ngModel)]="editingPost.title" class="form-control mb-2" />
+      <textarea [(ngModel)]="editingPost.body" class="form-control mb-2"></textarea>
+      <button (click)="updatePost()" class="btn btn-success">Update</button>
+      <button (click)="editingPost = null" class="btn btn-secondary">Cancel</button>
+    </div>
+  </div>
+
+  <!-- List of Posts -->
+  <div *ngFor="let post of posts" class="card mb-2">
+    <div class="card-body">
+      <h5>{{ post.title }}</h5>
+      <p>{{ post.body }}</p>
+      <button (click)="editPost(post)" class="btn btn-warning btn-sm">Edit</button>
+      <button (click)="deletePost(post.id)" class="btn btn-danger btn-sm">Delete</button>
+    </div>
+  </div>
+</div>

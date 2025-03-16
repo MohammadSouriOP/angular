@@ -1,1 +1,21 @@
-<p>test works!</p>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="user.name" required />
+    
+    <h3>Phone Numbers</h3>
+    <div *ngFor="let phone of user.phones; let i = index">
+      <input
+        type="text"
+        name="phone{{ i }}"
+        [(ngModel)]="user.phones[i]"
+        required
+        placeholder="Enter phone number"
+      />
+      <button type="button" (click)="removePhone(i)">Remove</button>
+    </div>
+  
+    <button type="button" (click)="addPhone()">Add Phone</button>
+    <br />
+    <button type="submit" [disabled]="userForm.invalid">Submit</button>
+  </form>
+  

@@ -1,0 +1,14 @@
+<p>product-list works!</p>
+<h2>Product List</h2>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Custom Price (EUR)</th>
+  </tr>
+  <tr *ngFor="let product of products">
+    <td>{{ product.name }}</td>
+    <td>{{ product.price | customCurrency }}</td>
+    <td>{{ product.price | customCurrency:'€':3 }}</td>
+  </tr>
+</table>

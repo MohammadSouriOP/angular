@@ -1,0 +1,14 @@
+<p>Welcome {{userName}}</p>
+<div class="container">
+    <h2>User Profile</h2>
+  
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" placeholder="Enter your name">
+  
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="email" placeholder="Enter your email">
+  
+    <h3>Entered Data:</h3>
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+  </div>

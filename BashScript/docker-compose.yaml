@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  alpine:
+    image: alpine
+    container_name: alpine_container
+    command: ["sleep", "3600"]
+
+  busybox:
+    image: busybox
+    container_name: busybox_container
+    command: ["sleep", "3600"]
+
+  ubuntu:
+    image: ubuntu
+    container_name: ubuntu_container
+    command: ["sleep", "3600"]
+
+  httpd:
+    image: httpd
+    container_name: httpd_container
+    ports:
+      - "8082:80"
+
+  mysql:
+    image: mysql
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"

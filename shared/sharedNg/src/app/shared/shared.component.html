@@ -1,0 +1,15 @@
+<p>shared works!</p>
+
+<div class="card flex justify-center">
+    <p-button label="Check" />
+</div>
+
+<input type="text" pInputText [(ngModel)]="value" class="ng-invalid ng-dirty" variant="filled" placeholder="email"/>
+
+<div class="card flex justify-center">
+    <input pInputText [(ngModel)]="value" class="ng-invalid ng-dirty" placeholder="Name" />
+</div>
+<p-button label="Submit" severity="help" />
+<div class="card flex justify-center">
+    <p-checkbox [(ngModel)]="checked" [binary]="true" [indeterminate]="true" />
+</div>
